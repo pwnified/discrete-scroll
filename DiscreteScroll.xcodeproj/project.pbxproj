@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4CDE16F272A46E30099EC3C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CDE16E272A46E30099EC3C /* IOKit.framework */; };
 		C32391431DE7B5670068C5B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C32391421DE7B5670068C5B9 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4CDE16E272A46E30099EC3C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		C323913A1DE7B5670068C5B9 /* DiscreteScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscreteScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C323913E1DE7B5670068C5B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C32391421DE7B5670068C5B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -21,17 +23,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4CDE16F272A46E30099EC3C /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4CDE16D272A46E30099EC3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4CDE16E272A46E30099EC3C /* IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C32391311DE7B5670068C5B9 = {
 			isa = PBXGroup;
 			children = (
 				C323913C1DE7B5670068C5B9 /* DiscreteScroll */,
 				C323913B1DE7B5670068C5B9 /* Products */,
+				A4CDE16D272A46E30099EC3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +103,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -243,6 +256,7 @@
 				C32391591DE7B5670068C5B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
