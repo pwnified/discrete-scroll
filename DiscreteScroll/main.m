@@ -82,14 +82,19 @@ int main(void) {
 	NSNumber *userInfo = lookup[@(accel)];
 	
 	CFMachPortRef eventTap = CGEventTapCreate(kCGSessionEventTap, kCGHeadInsertEventTap, 0, CGEventMaskBit(kCGEventScrollWheel), cgEventCallback, (__bridge void *)(userInfo));
-	CFRunLoopSourceRef runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0);
-
-    CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, kCFRunLoopCommonModes);
-    CGEventTapEnable(eventTap, true);
-    CFRunLoopRun();
-
-    CFRelease(eventTap);
-    CFRelease(runLoopSource);
+	if (!eventTap) {
+		printf("Failed to create eventTap");
+	}
+	if (eventTap) {
+		CFRunLoopSourceRef runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0);
+		
+		CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, kCFRunLoopCommonModes);
+		CGEventTapEnable(eventTap, true);
+		CFRunLoopRun();
+		
+		CFRelease(eventTap);
+		CFRelease(runLoopSource);
+	}
 
     return 0;
 }
