@@ -7,14 +7,14 @@
 
 
 double sHostTimeToSeconds = 4.1666666666666666e-08;
-double SetTimerScale()
+double SetTimerScale(void)
 {
 	mach_timebase_info_data_t info;
 	mach_timebase_info(&info);
 	sHostTimeToSeconds = (double)info.numer / info.denom * 1e-9;
 	return sHostTimeToSeconds;
 }
-double CurrentTime() {
+double CurrentTime(void) {
 	return (mach_absolute_time() * sHostTimeToSeconds);
 }
 
@@ -55,7 +55,7 @@ CGEventRef cgEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef e
     return event;
 }
 
-uint64_t Get_HIDMouseScrollAcceleration();
+uint64_t Get_HIDMouseScrollAcceleration(void);
 BOOL Set_HIDMouseScrollAcceleration(uint64_t x);
 
 
@@ -102,7 +102,7 @@ int main(void) {
 
 
 // 0, 8192, 14090, 20480, 32768, 49152, 65536, 327680
-uint64_t Get_HIDMouseScrollAcceleration() {
+uint64_t Get_HIDMouseScrollAcceleration(void) {
 	
 	io_service_t service = IORegistryEntryFromPath(kIOMasterPortDefault, kIOServicePlane ":/IOResources/IOHIDSystem");
 
